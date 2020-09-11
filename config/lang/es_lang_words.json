@@ -1,0 +1,9 @@
+{
+    "name": "nombre",
+    "lastName": "apellido",
+    "email": "correo electrónico",
+    "telephone": "teléfono",
+    "password": "contraseña",
+    "confirm_password": "confirmar contraseña",
+    "page": "página"
+}
