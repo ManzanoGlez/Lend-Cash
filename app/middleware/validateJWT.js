@@ -8,8 +8,7 @@ const validateJWT = (req, res = response, next) => {
 
         if (!token) {
             return res.status(401).json({
-                ok: false,
-                msg: "No existe token",
+                message: "Unauthenticated",
             });
         }
 
@@ -21,8 +20,7 @@ const validateJWT = (req, res = response, next) => {
         console.log(error);
 
         return res.status(401).json({
-            ok: false,
-            msg: "Token no válido",
+            message: "Unauthenticated",
         });
     }
 

@@ -2,8 +2,8 @@ const express = require("express");
 const formData = require("express-form-data");
 const os = require("os");
 const cors_config = require("./cors");
- 
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 const loadConfig = (app) => {
     //To READ data
@@ -16,8 +16,18 @@ const loadConfig = (app) => {
     app.use(formData.union());
 
     cors_config(app);
+
+    validateDotEnv();
 };
 
+const validateDotEnv = () => {
+    if (!process.env.PORT) {
+      throw new Error(".env -  missing param 'PORT', (port where will run this app)");
+    }
+    if (!process.env.SEED) {
+      throw new Error(".env -  missing param 'SEED', (seed is required by JTW) by example: '$pwk(V1yX-UrviXqX2;f@Sq3R$9d0kFd)q8orgj'");
+    }
 
+};
 
 module.exports = { loadConfig };

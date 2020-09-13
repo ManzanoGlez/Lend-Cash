@@ -17,8 +17,6 @@ const usePaginator = async (Model, pageSize = 10, req, where = null) => {
         ...where,
     };
  
-    console.log(options)
-
     const pag = await Model.paginate(options);
 
     //Rename Fields

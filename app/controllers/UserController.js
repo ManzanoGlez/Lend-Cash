@@ -17,13 +17,11 @@ const show = async (req, res = response) => {
                 lastName: { [Op.substring]: q },
                 email: { [Op.substring]: q },
                 telephone: { [Op.substring]: q },
-            }
+            },
         },
     });
 
-    return res.json({ ok: true, users });
+    return res.json({ success: { users } });
 };
 
-module.exports = {
-    show,
-};
+module.exports = { show };
